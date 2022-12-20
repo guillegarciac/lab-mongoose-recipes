@@ -18,6 +18,7 @@ mongoose
   })
   .then(() => {
     // Run your code here, after you have insured that the connection was made
+    //Recipe.create() is the same as declaring const newRecipe
     const newRecipe = Recipe.create({
       title: "spaguetti with pesto", level: "Easy Peasy", ingridients: ["pasta", "pesto", "cheese"], cuisine: "Italian", dishType: "main_course", duration: "15", creator: "Luca Barilla", created: 'Thu Dec 20 1900 09:00:59 GMT+0000'
     })
