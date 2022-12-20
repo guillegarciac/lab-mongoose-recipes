@@ -36,7 +36,19 @@ mongoose
   .then(() => {
     return Recipe.findOneAndUpdate({title: 'Rigatoni alla Genovese'},{duration: 100}, {new: true})
   })
-  .then(editedRecipe => console.log('Successfully updated the following' + editedRecipe))
+  //.then(editedRecipe => console.log('Successfully updated the following' + editedRecipe))
+  .then(() => {
+    return Recipe.findOneAndUpdate({duration: 220},{duration: 100}, {new: true})	    
+  })
+  .then(() => {
+    return Recipe.deleteOne({title: "Carrot Cake"})
+  })
+  .then(() => {
+    console.log("no more 🥕🥕🥕")
+  })
+  .then(() => {
+    mongoose.disconnect();
+  })
   .catch(error => {
     console.error('Error connecting to the database', error);
   });
