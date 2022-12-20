@@ -31,8 +31,12 @@ mongoose
   .then(() => {
     return Recipe.insertMany(data)
   })
-  .then(createdRecipes => console.log(createdRecipes))
+  //.then(createdRecipes => console.log(createdRecipes))
   //Not sure how to console.log only the title of each recipe
+  .then(() => {
+    return Recipe.findOneAndUpdate({title: 'Rigatoni alla Genovese'},{duration: 100}, {new: true})
+  })
+  .then(editedRecipe => console.log('Successfully updated the following' + editedRecipe))
   .catch(error => {
     console.error('Error connecting to the database', error);
   });
