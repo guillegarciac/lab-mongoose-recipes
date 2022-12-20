@@ -24,7 +24,15 @@ mongoose
     })
     return newRecipe;
   })
-  .then(createdRecipe => console.log(createdRecipe))
+  //.then(createdRecipe => console.log(createdRecipe))
+  .then(() => {
+    return Recipe.deleteMany()
+  })
+  .then(() => {
+    return Recipe.insertMany(data)
+  })
+  .then(createdRecipes => console.log(createdRecipes))
+  //Not sure how to console.log only the title of each recipe
   .catch(error => {
     console.error('Error connecting to the database', error);
   });
